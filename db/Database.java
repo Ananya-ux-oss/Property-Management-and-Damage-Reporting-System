@@ -15,6 +15,9 @@ public class Database {
     private final DatabaseConnection dbConnection = DatabaseConnection.getInstance();
     private final boolean usingJdbc = dbConnection.isAvailable();
     private Connection connection() { return dbConnection.getConnection(); }
+    public boolean isAvailable() {
+    return usingJdbc;
+}
 
     //User CRUD 
     public void saveUser(User user, String plainPassword) {
