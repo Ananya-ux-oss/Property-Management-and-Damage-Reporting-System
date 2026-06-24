@@ -168,7 +168,8 @@ public class Database {
                         rs.getString("report_id"),
                         rs.getString("student_id"),
                         rs.getString("property_id"),
-                        rs.getString("description")
+                        rs.getString("description"),
+                        rs.getTimestamp("reported_at").toLocalDateTime()
                     );
                     r.setStatus(DamageReport.Status.valueOf(rs.getString("status")));
                     r.setReviewNotes(rs.getString("review_notes"));
