@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDateTime;
 
 public class DamageReport {
@@ -12,17 +14,17 @@ public class DamageReport {
     private final LocalDateTime reportedAt;
     private       String reviewNotes;
 
-    public DamageReport(String reportId, String studentId,
-                        String propertyId, String description) {
-                        this.reportId    = reportId;
-                        this.studentId   = studentId;
-                        this.propertyId  = propertyId;
-                        this.description = description;
-                        this.status      = Status.PENDING;
-                        this.reportedAt  = LocalDateTime.now();
-                        this.reviewNotes = "";
+    public DamageReport(String reportId, String studentId, String propertyId, String description) {
+        this.reportId    = reportId;
+        this.studentId   = studentId;
+        this.propertyId  = propertyId;
+        this.description = description;
+        this.status      = Status.PENDING;
+        this.reportedAt  = LocalDateTime.now();
+        this.reviewNotes = "";
     }
 
+    //Getter
     public String  getReportId() {
          return reportId; }
 
@@ -50,14 +52,14 @@ public class DamageReport {
     public String getReviewNotes() { 
          return reviewNotes; }
    
-    
+    //Setter
     public void setReviewNotes(String n) { 
         this.reviewNotes = n; }
 
     @Override
     public String toString() {
         return String.format(
-            "DamageReport{id=%s, property=%s, student=%s, status=%s, desc='%s'}",
+            "DamageReport |id=%s, property=%s, student=%s, status=%s, desc='%s'|",
             reportId, propertyId, studentId, status, description
         );
     }
