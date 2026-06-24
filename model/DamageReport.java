@@ -9,10 +9,10 @@ public class DamageReport {
     private final String reportId;
     private final String studentId;
     private final String propertyId;
-    private       String description;
-    private       Status status;
+    private String description;
+    private Status status;
     private final LocalDateTime reportedAt;
-    private       String reviewNotes;
+    private String reviewNotes;
 
     public DamageReport(String reportId, String studentId, String propertyId, String description) {
         this.reportId    = reportId;
