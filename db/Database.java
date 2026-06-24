@@ -25,18 +25,18 @@ public class Database {
         try {
             PreparedStatement ps = connection().prepareStatement(
                 "INSERT IGNORE INTO users(user_id,name,email,password_hash,role) VALUES(?,?,?,?,?)");
-                ps.setString(1, user.getUserId());
-                ps.setString(2, user.getName());
-                ps.setString(3, user.getEmail());
-                ps.setString(4, hash);
-                ps.setString(5, user.getRole());
-                ps.executeUpdate();
-                ps.close();
-            } catch (SQLException e) {
-                System.out.println("[DB] saveUser SQL error: " + e.getMessage());
-            }
-        } 
+            ps.setString(1, user.getUserId());
+            ps.setString(2, user.getName());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getPasswordHash());
+            ps.setString(5, user.getRole());
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println("[DB] saveUser SQL error: " + e.getMessage());
+        }
     }
+}
 
     public boolean validateUser(String email, String passwordHash) {
         if (usingJdbc) {
