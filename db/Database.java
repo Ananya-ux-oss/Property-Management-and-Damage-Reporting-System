@@ -56,6 +56,21 @@ public class Database {
       else {return false}
     }
 
+    public User findUserByEmail(String email) {
+        if (!usingJdbc) {
+            return null;
+        }
+        try {
+            PreparedStatement ps = connection().prepareStatement(
+                "SELECT user_id, name, email, password_hash, role FROM users WHERE email=?");
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String userId = rs.getString("user_id");
+                String name   = rs.getString("name");
+                String role   = rs.getString("role");
+                ps.close();
+
     //Property CRUD
 
     public void saveProperty(Property p) {
