@@ -5,8 +5,6 @@ import model.Manager;
 import model.Student;
 import model.User;
 import ui.InputHandler;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class PropertyManagementSystem {
