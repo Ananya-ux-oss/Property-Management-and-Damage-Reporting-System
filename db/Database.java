@@ -93,36 +93,30 @@ public class Database {
     }
 
     public Property findPropertyById(String propertyId) {
-    if (usingJdbc) {
-        try {
-            PreparedStatement ps = connection().prepareStatement(
-                "SELECT * FROM properties WHERE property_id=?");
-            ps.setString(1, propertyId);
-
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                Property p = new Property(
-                    rs.getString("property_id"),
-                    rs.getString("property_name"),
-                    rs.getString("type"),
-                    rs.getString("manager_id")
-                );
-
-                p.setLocation(rs.getString("location"));
-                p.setActive(rs.getBoolean("active"));
-
+            try {
+                PreparedStatement ps = connection().prepareStatement(
+                    "SELECT * FROM properties WHERE property_id=?");
+                ps.setString(1, propertyId);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    Property p = new Property(
+                        rs.getString("property_id"),
+                        rs.getString("property_name"),
+                        rs.getString("type"),
+                        rs.getString("manager_id")
+                    );
+                    p.setLocation(rs.getString("location"));
+                    p.setActive(rs.getBoolean("active"));
+                    ps.close();
+                    return p;
+                }
                 ps.close();
-                return p;
+            } catch (SQLException e) {
+                System.out.println("[DB] findProperty SQL error: " + e.getMessage());
             }
-
-            ps.close();
-        } catch (SQLException e) {
-            System.out.println("[DB] findProperty SQL error: " + e.getMessage());
+    
+            return null;
         }
-    }
-    return null;
-}
     //DamageReport CRUD
 
     public void saveDamageReport(DamageReport r) {
