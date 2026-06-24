@@ -24,6 +24,8 @@ public class InputHandler {
 
     private String nextId(String prefix) {
         int count = idCounters.merge(prefix, 1, Integer::sum);   // 1, 2, 3, ...
+        return String.format("%s%03d", prefix, count + 1);        // -> 002, 003, 004, ...
+    }
 
     private int readInt(String prompt) {
         while (true) {
