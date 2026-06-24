@@ -22,7 +22,7 @@ public class Property {
         this.active       = true;
     }
     
-    //Getter
+    //Getters
     public String getPropertyId() {    
         return propertyId; 
     }
@@ -57,7 +57,7 @@ public class Property {
         );
     }
 
-    //Setter
+    //Setters
     public void  setPropertyName(String n) {
         this.propertyName = n; 
     }
