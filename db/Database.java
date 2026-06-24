@@ -48,7 +48,6 @@ public class Database {
                 return found;
             } catch (SQLException e) {
                 System.out.println("[DB] validateUser SQL error: " + e.getMessage());
-                return false;
             } 
         } 
       return false;
