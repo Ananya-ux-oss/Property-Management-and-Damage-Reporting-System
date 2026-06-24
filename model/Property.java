@@ -52,8 +52,8 @@ public class Property {
    
     public String getSummary() {
         return String.format(
-            "ID=%-6s | %-22s | Type=%-12s | Cap=%-3d | Location=%-35s | Active=%s",
-            propertyId, propertyName, type, capacity, location, active
+            "ID=%-6s | %-22s | Type=%-12s | Location=%-35s | Active=%s",
+            propertyId, propertyName, type, location, active
         );
     }
 
