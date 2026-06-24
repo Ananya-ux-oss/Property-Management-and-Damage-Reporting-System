@@ -45,6 +45,8 @@ PropertyManagementSystem/
 │   ├── Admin.java
 │   ├── Student.java
 │   └── Manager.java
+├── lib/
+│    └── 
 └── ui/
     └── InputHandler.java
 
