@@ -28,7 +28,7 @@ public class Manager extends User implements Reviewable, Summarizable {
         this.department = dept; 
     }
 
-    public Property registerProperty(String propId, String propName, String type, int capacity) {
+    public Property registerProperty(String propId, String propName, String type) {
         if (!isLoggedIn()) {
             System.out.println("[RegisterProperty] Must be logged in.");
             return null;
