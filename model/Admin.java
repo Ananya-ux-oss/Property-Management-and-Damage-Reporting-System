@@ -1,3 +1,7 @@
+package model;
+
+import db.Database;
+
 public class Admin extends User {
 
     public Admin(String userId, String email, String password) {
@@ -8,8 +12,7 @@ public class Admin extends User {
     @Override
     public String getRole() { return "Admin"; }
 
-    public Manager registerManager(String mgrId, String name,
-                                    String email, String password) {
+    public Manager registerManager(String mgrId, String name, String email, String password) {
         try {
             Manager manager = new Manager(mgrId, name, email, password);
             Database.getInstance().saveUser(manager, password);
