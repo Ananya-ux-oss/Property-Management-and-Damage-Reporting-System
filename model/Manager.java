@@ -1,4 +1,8 @@
-import java.util.List;
+package model;
+
+import java.util.*;
+import Interface.*;
+import db.Database;
 
 public class Manager extends User implements Reviewable, Summarizable {
 
@@ -9,14 +13,22 @@ public class Manager extends User implements Reviewable, Summarizable {
         this.department = "Managament"; 
     }
 
+    //Getter
     @Override
-    public String getRole() { return "Manager"; }
+    public String getRole() { 
+        return "Manager"; 
+    }
 
-    public String getDepartment()            { return department; }
-    public void   setDepartment(String dept) { this.department = dept; }
+    public String getDepartment() { 
+        return department; 
+    }
 
-    public Property registerProperty(String propId, String propName,
-                                      String type, int capacity) {
+    //Setter
+    public void setDepartment(String dept) { 
+        this.department = dept; 
+    }
+
+    public Property registerProperty(String propId, String propName, String type, int capacity) {
         if (!isLoggedIn()) {
             System.out.println("[RegisterProperty] Must be logged in.");
             return null;
@@ -41,12 +53,10 @@ public class Manager extends User implements Reviewable, Summarizable {
             System.out.println("[AssignLocation] No property provided.");
             return;
         }
-        //(suggestion)- also add if location is null, location needs to be provided
-
+        
         property.setLocation(location);
-        Database.getInstance().updateProperty(property); //updateproperty() defined i database class code that updates the property in storage (HashMap / SQLite / etc.)
-        System.out.println("[AssignLocation] \"" + location
-                         + "\" assigned to " + property.getPropertyName());
+        Database.getInstance().updateProperty(property); 
+        System.out.println("[AssignLocation] \"" + location + "\" assigned to " + property.getPropertyName());
     }
 
     @Override
