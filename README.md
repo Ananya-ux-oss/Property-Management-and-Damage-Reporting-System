@@ -113,12 +113,5 @@ The program comes with an one Admin user already registered and the account of t
 
 Typing the number of choice leads to subsequent portal and under each portals, there are several interactive options as well.
 
-The program comes with seeds for manager and admin inorder to show the persistance using database.
-| Role | Email | Password |
-|---|---|---|
-| Admin | `admin@university.edu` | `adminSecret` |
-| Manager | `alice@university.edu` | `mgrSecret` |
-| Student | `bereket@university.edu` | `stuSecret` |
-
 ## Note
 -`activity_log.txt` is created or appended to in the working directory everytime the program runs and logs activities done in while the program runs along with time stamps.
