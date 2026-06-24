@@ -71,6 +71,20 @@ public class Database {
                 String role   = rs.getString("role");
                 ps.close();
 
+                return switch (role) {
+                    case "Admin"   -> new Admin(userId, email, "");
+                    case "Manager" -> new Manager(userId, name, email, "");
+                    case "Student" -> new Student(userId, name, email, "");
+                    default        -> null;
+                };
+            }
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println("[DB] findUserByEmail SQL error: " + e.getMessage());
+        }
+        return null;
+    }
+
     //Property CRUD
 
     public void saveProperty(Property p) {
