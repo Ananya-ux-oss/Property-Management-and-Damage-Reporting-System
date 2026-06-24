@@ -34,7 +34,7 @@ public class Manager extends User implements Reviewable, Summarizable {
             return null;
         }
         try {
-            Property property = new Property(propId, propName, type, capacity, getUserId()); 
+            Property property = new Property(propId, propName, type, getUserId()); 
             Database.getInstance().saveProperty(property);
             System.out.println("[RegisterProperty] Registered: " + property);
             return property;
