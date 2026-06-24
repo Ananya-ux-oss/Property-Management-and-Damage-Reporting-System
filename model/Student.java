@@ -1,3 +1,8 @@
+package model;
+
+import db.Database;
+import exception.*;
+
 public class Student extends User {
 
     private String assignedRoomId;
@@ -8,10 +13,16 @@ public class Student extends User {
     }
 
     @Override
-    public String getRole() { return "Student"; }
-
-    public String getAssignedRoomId()              { return assignedRoomId; }
-    public void   setAssignedRoomId(String roomId) { this.assignedRoomId = roomId; }
+    public String getRole() { 
+        return "Student"; 
+    }
+    
+    public String getAssignedRoomId() { 
+        return assignedRoomId; 
+    }
+    public void setAssignedRoomId(String roomId) { 
+        this.assignedRoomId = roomId; 
+    }
 
     public DamageReport reportDamage(String propertyId, String description) {
         if (!isLoggedIn()) {
