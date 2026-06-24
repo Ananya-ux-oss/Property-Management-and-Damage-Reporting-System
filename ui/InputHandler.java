@@ -1,4 +1,8 @@
-import java.util.Scanner;
+package ui;
+
+import java.util.*;
+import model.*;
+import db.Database;
 
 public class InputHandler {
 
@@ -99,8 +103,7 @@ public class InputHandler {
                     String propId   = readLine("  New Property ID   : ");
                     String propName = readLine("  Property name     : ");
                     String type     = readLine("  Type (e.g. Lab, Dorm, Office) : ");
-                    int    capacity = readInt  ("  Capacity (number) : ");
-                    Property newProp = manager.registerProperty(propId, propName, type, capacity);
+                    Property newProp = manager.registerProperty(propId, propName, type);
                     if (newProp != null) {
                         System.out.println("  ✔ Property registered: " + newProp);
                         String assignNow = readLine("  Assign a location now? (y/n) : ");
@@ -139,6 +142,57 @@ public class InputHandler {
         }
     }
 
+    public void runAdminMenu(Admin admin) {
+        System.out.println("         ADMIN LOGIN PORTAL          ");
+        System.out.println("└─────────────────────────────────────┘");
+
+        String email    = readLine("  Enter your email    : ");
+        String password = readLine("  Enter your password : ");
+
+        boolean loggedIn = admin.login(email, password);
+        if (!loggedIn) {
+            System.out.println("  Login failed. Returning to main menu.");
+            return;
+        }
+
+        boolean running = true;
+        while (running) {
+            System.out.println("\n  ────────── Admin Menu ────────────────");
+            System.out.println("  [1] Register New Manager");
+            System.out.println("  [2] Register New Student");
+            System.out.println("  [3] Logout");
+            System.out.println("  ───────────────────────────────────────");
+
+            int choice = readInt("  Your choice: ");
+            switch (choice) {
+                case 1 -> {
+                    String name     = readLine("  Manager name     : ");
+                    String mgrEmail= readLine("  Manager email    : ");
+                    String mgrPass = readLine("  Manager password : ");
+                    String id      = nextId("M");
+
+                    Manager newManager = admin.registerManager(id, name, mgrEmail, mgrPass);
+                    if (newManager != null) {
+                        System.out.println("  ✔ Manager registered with ID: " + newManager.getUserId());
+                    }
+                }
+                case 2 -> {
+                    String name      = readLine("  Student name     : ");
+                    String stuEmail  = readLine("  Student email    : ");
+                    String stuPass   = readLine("  Student password : ");
+                    String id        = nextId("S");
+                    Student newStudent = new Student(id, name, stuEmail, stuPass);
+                    System.out.println("  ✔ Student registered with ID: " + newStudent.getUserId());
+                }
+                case 3 -> {
+                    admin.logout();
+                    running = false;
+                }
+                default -> System.out.println("  [!] Invalid option — enter 1-3.");
+            }
+        }
+    }
+    
     public void close() {
         sc.close();
     }
