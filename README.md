@@ -22,21 +22,21 @@ you can use those accounts, or have the Admin create more.
 
 ```
 PropertyManagementSystem/
-├── PropertyManagementSystem.java 
-└── db/
-    └── schema.sql                  
-    └── Database.
-├── interface/
-    └── Reviewable.java
-    └── Summarizable.java
+├── PropertyManagementSystem.java
+├── db/
+│   ├── schema.sql
+│   └── Database.java
+├── interfaces/
+│   ├── Reviewable.java
+│   └── Summarizable.java
 ├── exception/
-    └── AuthenticationException.java
-    └── DatabaseException.java
-    └── PropertyNotFoundException.java
-    └── SystemException.java
-    └── UnauthorizedException.java
-├── ui/
-     └──inputHandler.java
+│   ├── AuthenticationException.java
+│   ├── DatabaseException.java
+│   ├── PropertyNotFoundException.java
+│   ├── SystemException.java
+│   └── UnauthorizedException.java
+└── ui/
+    └── InputHandler.java
 ```
 Everything — model classes, exceptions, database access, file logging, and
 the interactive menus — lives in `PropertyManagementSystem.java`, organized
