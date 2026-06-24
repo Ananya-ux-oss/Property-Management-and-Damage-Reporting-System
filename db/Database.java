@@ -48,9 +48,10 @@ public class Database {
                 return found;
             } catch (SQLException e) {
                 System.out.println("[DB] validateUser SQL error: " + e.getMessage());
+                return false;
             } 
         } 
-      return false;
+      else {return false}
     }
 
     //Property CRUD
@@ -72,6 +73,7 @@ public class Database {
                 System.out.println("[DB] saveProperty SQL error: " + e.getMessage());
             }
         } 
+        
     }
 
     public void updateProperty(Property p) {
