@@ -35,8 +35,18 @@ PropertyManagementSystem/
 │   ├── PropertyNotFoundException.java
 │   ├── SystemException.java
 │   └── UnauthorizedException.java
+├── ui/
+│    └── InputHandler.java
+├── model/
+│   ├── DamageReport.java
+│   ├── Property.java
+│   ├── user.java
+│   ├── Admin.java
+│   ├── Student.java
+│   └── Manager.java
 └── ui/
     └── InputHandler.java
+
 ```
 Everything — model classes, exceptions, database access, file logging, and
 the interactive menus — lives in `PropertyManagementSystem.java`, organized
