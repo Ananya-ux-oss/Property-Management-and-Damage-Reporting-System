@@ -20,12 +20,11 @@ public class Database {
 }
 
     //User CRUD 
-    public void saveUser(User user, String plainPassword) {
-        String hash = User.hashPassword(plainPassword);
-        if (usingJdbc) {
-            try {
-                PreparedStatement ps = connection().prepareStatement(
-                    "INSERT IGNORE INTO users(user_id,name,email,password_hash,role) VALUES(?,?,?,?,?)");
+   public void saveUser(User user) {
+    if (usingJdbc) {
+        try {
+            PreparedStatement ps = connection().prepareStatement(
+                "INSERT IGNORE INTO users(user_id,name,email,password_hash,role) VALUES(?,?,?,?,?)");
                 ps.setString(1, user.getUserId());
                 ps.setString(2, user.getName());
                 ps.setString(3, user.getEmail());
