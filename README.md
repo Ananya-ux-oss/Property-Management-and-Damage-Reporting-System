@@ -46,7 +46,7 @@ PropertyManagementSystem/
 │   ├── Student.java
 │   └── Manager.java
 ├── lib/
-│    └── 
+│    └── mysql-connector-j-9.7.0.jar
 └── ui/
     └── InputHandler.java
 
