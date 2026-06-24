@@ -22,6 +22,9 @@ public class InputHandler {
         return line;
     }
 
+    private String nextId(String prefix) {
+        int count = idCounters.merge(prefix, 1, Integer::sum);   // 1, 2, 3, ...
+
     private int readInt(String prompt) {
         while (true) {
             System.out.print(prompt);
