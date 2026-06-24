@@ -1,8 +1,9 @@
 # Property Management and Damage Reporting System
 
-A single-file Java console application implementing the use-case diagram for
-a university Property Management and Damage Reporting System, backed by
-MySQL.
+A Java console application that is intended to be used by a small sized college like BITS College where the manager(primary user) registers properties, assign location to registered properties and review reports made by students on damaged assets while the students report damage done to properties. The backed by
+MySQL database that is used to store the users(for authentication), properties and damage reports. 
+
+If the program is to further develope, it is envisioned that it would become a web-based or desktop application where students can submit reports using images while the manager has a fully interactive map of the assets of the university.
 
 ## What it does
 
